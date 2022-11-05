@@ -1,0 +1,65 @@
+*, *::before, *::after{
+    box-sizing:border-box;
+    font-family: "neue kabel" sans-serif;
+    font-weight: 600;
+    
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: rgb(61, 187, 255);
+
+}
+.calculator-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+   grid-template-columns: repeat(4, 100px);
+   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 2px solid rgba(0, 0, 0, .70);
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+    color: black;
+}
+
+.calculator-grid > button:hover{
+    background-color: rgba(255, 255, 255, .88);
+}
+
+.span-two{
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .70);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 10px;
+    padding-right: 15px;
+    word-wrap: break-word;
+    word-break: break-all;
+    
+}
+
+.output > div {
+    color: rgba(255, 255, 255, .90);
+    font-size: 2.8rem;
+    
+}
+
+.output > div:first-child{
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, .70);
+}
+
