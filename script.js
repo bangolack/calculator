@@ -11,7 +11,36 @@ let prevOperand = ""
 let operatorSelection = ""
 let previousOperator = ""
 let answer = 0
+let previousOperand = ""
+console.log(equalsButton)
+equalsButton.addEventListener("click", function() {
+    previousOperator = operatorSelection
+        previousOperand = evaluate(currentOperand, previousOperand)
+        console.log(previousOperand)
 
+        currentOperand = ""
+        prevOperand = ""
+        currentOperandEl.textContent = ""
+        previousOperandEl.textContent = `${previousOperand}`
+        currentOperand = ""
+        prevOperand = ""
+        operatorSelection = ""
+        previousOperator = ""
+        answer = 0
+        previousOperand = ""
+    })
+
+deleteButton.addEventListener("click", function(){
+    currentOperand = currentOperand.slice(0,-1)
+    currentOperandEl.textContent = currentOperand
+})
+
+allClearButton.addEventListener("click", function(){
+    currentOperand = ""
+    prevOperand = ""
+    currentOperandEl.textContent = ""
+    previousOperandEl.textContent = ""
+})
 
 numberButtons.forEach((number) => number.addEventListener("click", function(e){
 setNumber(e.target.textContent)
@@ -27,13 +56,14 @@ function setNumber(num){
 
 
 operationButtons.forEach((operator) => operator.addEventListener("click", function(e){
-    if(previousOperandEl.textContent === ""){
+    if(previousOperand === ""){
         previousOperand = currentOperand
         previousOperator = operatorSelection
         operatorSelection = e.target.textContent
 
         currentOperand = ""
         prevOperand = ""
+        currentOperandEl.textContent = ""
         
 
 
@@ -50,6 +80,7 @@ operationButtons.forEach((operator) => operator.addEventListener("click", functi
 
         currentOperand = ""
         prevOperand = ""
+        currentOperandEl.textContent = ""
     }
     previousOperandEl.textContent = `${previousOperand} ${operatorSelection}`
 }))
@@ -72,6 +103,7 @@ function evaluate(currentOperand, prevOperand){
     else if (previousOperator === "÷"){
         previousNum /= currentNum
         return previousNum}
+    
     }
     
 
